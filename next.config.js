@@ -157,4 +157,4 @@ const nextConfig = {
 
 }
 
-module.exports = withBundleAnalyzer(nextConfig);
+module.exports = withBundlerAnalyzer(nextConfig);
