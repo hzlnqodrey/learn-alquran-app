@@ -1,8 +1,16 @@
 'use client';
 
 import { Button } from "@/components/ui/button"
+import { useTheme } from "next-themes";
+import { Sun, Moon } from "lucide-react";
 
 export default function HomePage() {
+    const { theme, setTheme } = useTheme();
+
+    const toggleTheme = () => {
+        setTheme(theme === 'dark' ? 'light' : 'dark');
+    }
+    
 
     return (
         <div className="min-h-screen bg-background">
@@ -21,11 +29,27 @@ export default function HomePage() {
 
                     {/* HEADER RIGHT */}
                     <div className="flex items-center space-x-2">
+                        {/* Button: Dark Mode */}
                         <Button
-                        
+                            variant="ghost"
+                            size="icon"
+                            onClick={toggleTheme}
+                            aria-label="Toggle theme"
                         >
-
+                            {theme === 'dark' ?  <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                         </Button>
+
+                        {/* Button: Login */}
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            // TODO: AUTH and Login
+                            // onClick={() => router.push('/auth/login')} 
+                        >
+                            Sign In
+                        </Button>
+
+                        {/* Button: Settings */}
                     </div>
 
                 </div>

@@ -1,3 +1,7 @@
+/**
+ * What this code do?
+ * Reusable, customizable <Button> component for this project (React + Tailwind)
+ */
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority"
 import { Slot } from "@radix-ui/react-slot";
