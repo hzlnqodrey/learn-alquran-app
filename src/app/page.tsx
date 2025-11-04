@@ -3,8 +3,10 @@
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+    const router = useRouter()
     const { theme, setTheme } = useTheme();
 
     const toggleTheme = () => {
@@ -50,6 +52,14 @@ export default function HomePage() {
                         </Button>
 
                         {/* Button: Settings */}
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => router.push('/settings')}
+                            aria-label="Settings"
+                        >
+                            Settings
+                        </Button>
                     </div>
 
                 </div>
