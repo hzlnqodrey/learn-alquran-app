@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes";
 import { Sun, Moon, Settings } from "lucide-react";
 import { useRouter } from "next/navigation";
-import '@/styles/globals.css'; // TODO: move to layout.tsx
+// import '@/styles/globals.css'; // TODO: move to layout.tsx
 
 export default function HomePage() {
     const router = useRouter()
