@@ -76,14 +76,46 @@ export const viewport : Viewport = {
   colorScheme: 'light dark',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html 
+      lang="en"
+      dir="ltr" // left to right
+      suppressHydrationWarning
+      className={`${inter.variable} ${amiri.variable}`}
+    >
+      <head>
+        <link rel="preconnect" href="https://fonts.google.apis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='anonymous'/>
+        <link rel="preconnect" href="https://api.quran.gading.dev"/>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Quran App" />
+        <meta name="apple-web-app-capable" content="yes" />
+        <meta name="msapplication-TileColor" content="#047857" />
+        <meta name="msapplication-tap-highlight" content="no" />
+      </head>
+
+      <body
+        className='min-h-screen bg-background font-sans antialiased'
+        suppressHydrationWarning
+      >
+        <Providers>
+          <div className='relative flex min-h-screen flex-col'>
+            <main className='flex-1'>
+              {children}
+            </main>
+          </div>
+        </Providers>
+
+        {/* Service Worker Registration */}
+      
+      </body>
     </html>
   )
 }
