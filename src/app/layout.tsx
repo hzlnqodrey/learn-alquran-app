@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import { Metadata, Viewport } from "next";
 import { Inter, Amiri } from "next/font/google";
+import { Providers } from "@/components/providers/providers";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -15,7 +16,7 @@ const amiri = Amiri({
   display: 'swap',
 })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: 'Quran App - Read, Learn, Listen, and Focus',
     template: '%s | Quran App',
