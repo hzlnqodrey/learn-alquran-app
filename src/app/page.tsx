@@ -91,8 +91,54 @@ export default function HomePage() {
             </main>
 
             {/* FOOTER */}
-            <footer>
+            <footer className="border-t py-8 mt-12">
                 <p>This is footer</p>
+                <div className="container">
+                    {/* up footer */}
+                    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                        {/* Navigate */}
+                        <div>
+                            <h4 className="font-semibold mb-3">Navigate</h4>
+                            <div className="space-y-2 text-sm">
+                                <button onClick={() => router.push('/')} className="block text-muted-foreground hover:text-foreground">Home</button>
+                                <button onClick={() => router.push('/surahs')} className="block text-muted-foreground hover:text-foreground">All Surahs</button>
+                                <button onClick={() => router.push('/bookmarks')} className="block text-muted-foreground hover:text-foreground">Bookmarks</button>
+                                <button onClick={() => router.push('/islam-resources')} className="block text-muted-foreground hover:text-foreground">Islam Resources</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 className="font-semibold mb-3">Popular Surahs</h4>
+                            <div className="space-y-2 text-sm">
+                                <button onClick={() => router.push("/surah/1")} className="block text-muted-foreground hover:text-muted-foreground">Al-Fatihah</button>
+                                <button onClick={() => router.push("/surah/114")} className="block text-muted-foreground hover:text-muted-foreground">Al-Ikhlas</button>
+                                <button onClick={() => router.push("/surah/36")} className="block text-muted-foreground hover:text-muted-foreground">Yasin</button>
+                                <button onClick={() => router.push("/surah/16s")} className="block text-muted-foreground hover:text-muted-foreground">Al-Kahf</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 className="font-semibold mb-3">Resources</h4>
+                            <div className="space-y-2 text-sm">
+                                <button onClick={() => router.push("/settings")} className="block text-muted-foreground hover:text-muted-foreground">Settings</button>
+                                <a href="https://quran.com" target="_blank" rel="noopener noreferer" className="block text-muted-foreground hover:text-muted-foreground">Quran.com</a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 className="font-semibold mb-3">About</h4>
+                            <div className="space-y-2 text-sm">
+                                <p className="block text-muted-foreground">InsyaAllah this is a platform to read, listen, and learn the Holy Quran with Arabic text, translations, listen, and tafsir. Barakallah!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* down footer */}
+                    {/* TradeMark */}
+                    <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
+                        <p>© {new Date().getFullYear()} Al-Qur'an Apps. Built with love for the Muslim Community</p>
+                    </div>
+                </div>
             </footer>
         
         </div>
