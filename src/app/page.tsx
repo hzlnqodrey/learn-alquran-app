@@ -2,9 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes";
-import { Sun, Moon, Settings } from "lucide-react";
+import { Sun, Moon, Settings, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-// import '@/styles/globals.css'; // TODO: move to layout.tsx
 
 export default function HomePage() {
     const router = useRouter()
@@ -65,34 +64,69 @@ export default function HomePage() {
                     </div>
 
                 </div>
-                <p>This is header</p>
+                {/* <p>This is header</p> */}
             </header>
 
             {/* MAIN */}
             <main className="container py-8 space-y-12">
-                <p className="bg-blue-500">This is main</p>
+                {/* <p className="bg-blue-500">This is main</p> */}
                 {/* HERO SECTIONS */}
                 <section className="text-center space-y-6 py-8">
                     <div className="space-y-2">
                         <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                            Read, Listen, & Learn
+                            Read, Listen & Learn
                         </h2>
-                        <p className="">
+                        <p className="text-xl text-muted-foreground mx-auto max-w-2xl">
                             Experience the Holy Quran with beautiful Arabic text, translations, and recitations
                         </p>
                     </div>
                 </section>
                 {/* SEARCH BAR */}
+
                 {/* QUICK ACCESS -- AUTH USER */}
-                {/* QUICK ACTION */}
+                {/* QUICK ACCESS */}
+                <section className="space-y-4">
+                    <h3 className="text-3xl font-bold tracking-tight sm:text-2xl md:text-3xl">
+                        Quick Access
+                    </h3>
+                </section>
                 {/* RECENTLY READ -- AUTH USER */}
                 {/* POPULAR SURAH */}
+                <section className="space-y-4">
+                    {/* top bar section */}
+                    <div className="flex items-center justify-between">
+                        <h3 className="text-3xl font-bold tracking-tight sm:text-2xl md:text-3xl">
+                            Surahs
+                        </h3>
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => router.push('/surahs')}
+                        >
+                            View All 114 Surahs    
+                            <ChevronRight/>
+                        </Button>
+                    </div>
+
+                    {/* TODO: add loading spinner prop - component/ui/loading-spinner */}
+                    {/* <LoadingSpinner>
+
+                    </LoadingSpinner> */}
+
+                    {/* TODO: add error prop - component/ui/error-message */}
+                    {/* <ErrorMessage>
+
+                    </ErrorMessage> */}
+
+                    {/* TODO: fetch Surahs data API */}
+
+                </section>
                 {/* FEATURE SECTION */}
             </main>
 
             {/* FOOTER */}
             <footer className="border-t py-8 mt-12">
-                <p>This is footer</p>
+                {/* <p>This is footer</p> */}
                 <div className="container">
                     {/* up footer */}
                     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
