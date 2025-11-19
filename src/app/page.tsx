@@ -1,9 +1,12 @@
 'use client';
 
-import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes";
 import { Sun, Moon, Settings, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+
+// Components
+import { Button } from "@/components/ui/button"
+import { LoadingSpinner } from "@/components/ui/loading-spinner"
 
 export default function HomePage() {
     const router = useRouter()
@@ -109,9 +112,9 @@ export default function HomePage() {
                     </div>
 
                     {/* TODO: add loading spinner prop - component/ui/loading-spinner */}
-                    {/* <LoadingSpinner>
+                    <LoadingSpinner>
 
-                    </LoadingSpinner> */}
+                    </LoadingSpinner>
 
                     {/* TODO: add error prop - component/ui/error-message */}
                     {/* <ErrorMessage>
