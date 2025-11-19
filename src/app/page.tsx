@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 // Components
 import { Button } from "@/components/ui/button"
 import { LoadingSpinner } from "@/components/ui/loading-spinner"
+import { ErrorMessage } from "@/components/ui/error-message"
 
 export default function HomePage() {
     const router = useRouter()
@@ -18,9 +19,9 @@ export default function HomePage() {
     }
 
     // TanStack Query
-    const { data: isLoading } = useQuery({
+    const { data:  surahData, isLoading, error } = useQuery({
         queryKey: ['surahs'],
-        queryFn: quranAPI.getSurahs, // TODO
+        // queryFn: quranAPI.getSurahs, // TODO
         staleTime: 1000 * 60 * 60 // 100 hours
     })
     
@@ -119,7 +120,7 @@ export default function HomePage() {
                         </Button>
                     </div>
 
-                    {/* TODO: add loading spinner prop - component/ui/loading-spinner */}
+                    {/* loading spinner prop - component/ui/loading-spinner */}
                     {isLoading && (
                         <div className="flex justify-center py-12">
                             <LoadingSpinner
@@ -129,10 +130,7 @@ export default function HomePage() {
                     )}
 
                     {/* TODO: add error prop - component/ui/error-message */}
-                    {/* <ErrorMessage>
-
-                    </ErrorMessage> */}
-
+                    <ErrorMessage />
                     {/* TODO: fetch Surahs data API */}
 
                 </section>
