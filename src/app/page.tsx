@@ -112,9 +112,13 @@ export default function HomePage() {
                     </div>
 
                     {/* TODO: add loading spinner prop - component/ui/loading-spinner */}
-                    <LoadingSpinner>
-
-                    </LoadingSpinner>
+                    {isLoading && (
+                        <div className="flex justify-center py-12">
+                            <LoadingSpinner
+                                size="md"
+                            />
+                        </div>
+                    )}
 
                     {/* TODO: add error prop - component/ui/error-message */}
                     {/* <ErrorMessage>
