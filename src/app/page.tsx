@@ -3,6 +3,7 @@
 import { useTheme } from "next-themes";
 import { Sun, Moon, Settings, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
 
 // Components
 import { Button } from "@/components/ui/button"
@@ -15,6 +16,13 @@ export default function HomePage() {
     const toggleTheme = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark');
     }
+
+    // TanStack Query
+    const { data: isLoading } = useQuery({
+        queryKey: ['surahs'],
+        queryFn: quranAPI.getSurahs, // TODO
+        staleTime: 1000 * 60 * 60 // 100 hours
+    })
     
 
     return (
