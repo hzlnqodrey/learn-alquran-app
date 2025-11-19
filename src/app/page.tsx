@@ -130,7 +130,10 @@ export default function HomePage() {
                     )}
 
                     {/* TODO: add error prop - component/ui/error-message */}
-                    <ErrorMessage />
+                    <ErrorMessage 
+                        message="Failed to load surahs"
+                        onRetry={() => window.location.reload()} // refresh page / url
+                    />
                     {/* TODO: fetch Surahs data API */}
 
                 </section>
