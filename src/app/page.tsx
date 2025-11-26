@@ -10,6 +10,9 @@ import { Button } from "@/components/ui/button"
 import { LoadingSpinner } from "@/components/ui/loading-spinner"
 import { ErrorMessage } from "@/components/ui/error-message"
 
+// API
+import { quranAPI } from "@/lib/api";
+
 export default function HomePage() {
     const router = useRouter()
     const { theme, setTheme } = useTheme();
@@ -21,7 +24,7 @@ export default function HomePage() {
     // TanStack Query
     const { data:  surahData, isLoading, error } = useQuery({
         queryKey: ['surahs'],
-        // queryFn: quranAPI.getSurahs, // TODO
+        queryFn: quranAPI.getSurahs, // TODO
         staleTime: 1000 * 60 * 60 // 100 hours
     })
     
@@ -129,12 +132,15 @@ export default function HomePage() {
                         </div>
                     )}
 
-                    {/* TODO: add error prop - component/ui/error-message */}
-                    <ErrorMessage 
-                        message="Failed to load surahs"
-                        onRetry={() => window.location.reload()} // refresh page / url
-                    />
+                    {error && (
+                        <ErrorMessage 
+                            message="Failed to load surahs"
+                            onRetry={() => window.location.reload()} // refresh page / url
+                        />
+                    )
+                    }
                     {/* TODO: fetch Surahs data API */}
+                    {surahData && (<p>a</p>)}
 
                 </section>
                 {/* FEATURE SECTION */}
