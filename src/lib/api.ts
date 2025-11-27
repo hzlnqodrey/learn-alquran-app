@@ -1,7 +1,9 @@
 import axios, { AxiosInstance } from 'axios';
-// TODO: configure types, but lets do MVP api first okay with "any?"
+// DONE: configure surah types
+import { Surah } from "@/types";
 
 // API Configuration
+// TODO: Explore Gading API
 const QURAN_API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8080/api/v1'  // from local backend
 const QURAN_API_URL_GADING = 'https://api.quran.gading.dev'
 const QURAN_API_URL_KEMENAG = 'https://quran.kemenag.go.id'
@@ -30,9 +32,12 @@ export const quranAPIGading = {
         try {
             const response = await quranApiGadingClient.get('/surahs');
 
-            // return response.data.data.map
+            return response.data.data.map((surah: any) => ({
+                
+            }));
+
         } catch (error) {
-            
+            return 
         }
     }
 }
