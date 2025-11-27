@@ -30,7 +30,7 @@ export const quranAPIGading = {
         try {
             const response = await quranApiGadingClient.get('/surahs');
 
-            return response.data.data.map
+            // return response.data.data.map
         } catch (error) {
             
         }
