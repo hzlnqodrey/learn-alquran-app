@@ -19,7 +19,8 @@ export interface Surah {
 export interface SurahName {
     short: string;
     long: string;
-    translation: string;
+    transliteration: Record<string, string>;
+    translation: Record<string, string>;
 }
 
 export interface SurahRevelation {
