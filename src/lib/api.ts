@@ -34,6 +34,7 @@ export const quranAPIGading = {
 
             return response.data.data.map((surah: any) => ({
                 id: surah,
+                // TODO: fetch more api detail
             }));
 
         } catch (error) {

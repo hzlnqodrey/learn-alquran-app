@@ -9,9 +9,9 @@ import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button"
 import { LoadingSpinner } from "@/components/ui/loading-spinner"
 import { ErrorMessage } from "@/components/ui/error-message"
-
+import { SurahCard } from "@/components/quran/surah-card";
 // API
-import { quranAPI } from "@/lib/api";
+import { quranAPIGading } from "@/lib/api";
 
 export default function HomePage() {
     const router = useRouter()
@@ -24,7 +24,7 @@ export default function HomePage() {
     // TanStack Query
     const { data:  surahData, isLoading, error } = useQuery({
         queryKey: ['surahs'],
-        queryFn: quranAPI.getSurahs, // TODO
+        queryFn: quranAPIGading.getSurahs, // TODO
         staleTime: 1000 * 60 * 60 // 100 hours
     })
     
@@ -140,7 +140,16 @@ export default function HomePage() {
                     )
                     }
                     {/* TODO: fetch Surahs data API */}
-                    {surahData && (<p>a</p>)}
+                    {surahData && (
+                        <div className="grid">
+                            {/* Show first 12 surahs */}
+                            {surahData.slice(0, 12).map((surah) => {
+                                <SurahCard
+                                // TODO
+                                />
+                            })}
+                        </div>
+                    )}
 
                 </section>
                 {/* FEATURE SECTION */}
