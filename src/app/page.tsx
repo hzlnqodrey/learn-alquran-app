@@ -22,12 +22,16 @@ export default function HomePage() {
     }
 
     // TanStack Query
-    const { data:  surahData, isLoading, error } = useQuery({
+    const { data:  surahsData, isLoading, error } = useQuery({
         queryKey: ['surahs'],
         queryFn: quranAPIGading.getSurahs, // TODO
         staleTime: 1000 * 60 * 60 // 100 hours
     })
     
+    // TODO
+    const handleSurahClick = (surahId: number) => {
+        router.push(`/surah/${surahId}`)
+    }
 
     return (
         <div className="min-h-screen bg-background">
@@ -137,17 +141,19 @@ export default function HomePage() {
                             message="Failed to load surahs"
                             onRetry={() => window.location.reload()} // refresh page / url
                         />
-                    )
+                        )
                     }
                     {/* TODO: fetch Surahs data API */}
-                    {surahData && (
-                        <div className="grid">
-                            {/* Show first 12 surahs */}
-                            {surahData.slice(0, 12).map((surah) => {
-                                <SurahCard
-                                // TODO
+                    {surahsData && (
+                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        {/* Show first 12 surahs */}
+                        {surahsData.slice(0, 12).map((surah) => (
+                            <SurahCard
+                                key={surah.id}
+                                surah={surah}
+                                onClick={() => handleSurahClick(surah.id)}
                                 />
-                            })}
+                        ))}
                         </div>
                     )}
 
