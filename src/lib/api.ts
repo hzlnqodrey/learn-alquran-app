@@ -30,11 +30,23 @@ export const quranAPIGading = {
      */
     async getSurahs(): Promise<Surah[]> {
         try {
-            const response = await quranApiGadingClient.get('/surahs');
+            const response = await quranApiGadingClient.get('/surah');
 
             return response.data.data.map((surah: any) => ({
                 id: surah,
                 // TODO: fetch more api detail
+                name: {
+                    short: surah.name.short,
+                    long: surah.name.long,
+                    translation: surah.name.transliteration.en,
+                },
+                revelation: {
+                    arab: surah.revelation.arab,
+                    en: surah.revelation.en,
+                    id: surah.revelation.id,
+                },
+                number_of_ayahs: surah.numberOfVerses,
+                sequence: surah.sequence,
             }));
 
         } catch (error) {
